@@ -1,0 +1,480 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION GÉNÉRALE (Norme MMI)
+   ========================================================================== */
+:root {
+    --primary-color: #6366f1;      /* Indigo créatif et moderne */
+    --primary-hover: #4f46e5;      
+    --dark-color: #0f172a;         /* Ardoise très sombre */
+    --light-bg: #f8fafc;           
+    --white: #ffffff;
+    --gray-text: #475569;          
+    --border-color: #e2e8f0;       
+    --max-width: 1100px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   2. EN-TÊTE & NAVIGATION SÉMANTIQUE
+   ========================================================================== */
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--gray-text);
+    font-weight: 500;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. BOUTONS STYLISÉS & INTERACTIFS
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.primary-btn, .download-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+}
+
+.primary-btn:hover, .download-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px); /* Effet MMI : Léger soulèvement au survol */
+}
+
+.secondary-btn {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. STRUCTURE PRINCIPALE
+   ========================================================================== */
+main {
+    flex: 1;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* ==========================================================================
+   5. STYLES PAR PAGE
+   ========================================================================== */
+
+/* --- PAGE ACCUEIL --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.hero-text {
+    text-align: left;
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.hero-image .profile-pic {
+    width: 320px;
+    height: 320px;
+    border-radius: 30px; 
+    object-fit: cover;
+    border: 6px solid var(--white);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SECTION CONTACT (Bas de la page d'accueil) --- */
+.contact-section {
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.contact-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.contact-info {
+    margin-top: 2rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: var(--dark-color);
+    font-weight: 600;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.contact-info a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* --- EN-TÊTES DES PAGES SECONDAIRES --- */
+.cv-header, .book-header, .motivation-header {
+    text-align: left;
+    margin-bottom: 4rem;
+    border-left: 4px solid var(--primary-color); 
+    padding-left: 1.5rem;
+}
+
+.cv-header h1, .book-header h1, .motivation-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv-intro-text {
+    max-width: 800px;
+    margin-top: 1rem;
+    color: var(--gray-text);
+}
+
+/* --- PAGE CV --- */
+.cv-section {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.cv-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--light-bg);
+    padding-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.cv-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cv-item:last-child {
+    margin-bottom: 0;
+}
+
+.cv-date {
+    font-weight: 700;
+    color: var(--primary-color);
+    min-width: 120px;
+}
+
+.cv-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.cv-content h4 {
+    font-size: 1rem;
+    color: var(--gray-text);
+    font-weight: 500;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.skills-grid h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.skills-grid ul {
+    list-style-position: inside;
+    color: var(--gray-text);
+}
+
+.skills-grid li {
+    margin-bottom: 0.4rem;
+}
+
+/* --- PAGE PORTFOLIO (GRILLE DE PROJETS ADOBE) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    overflow: hidden;
+    height: 220px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+/* Effet MMI : Zoom discret sur le mockup au survol de la carte */
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.project-info p {
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.project-btn {
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.project-btn:hover {
+    background-color: var(--light-bg);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* --- PAGE LETTRE DE MOTIVATION --- */
+.motivation-letter {
+    background-color: var(--white);
+    padding: 4rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.letter-meta {
+    margin-bottom: 3rem;
+}
+
+.date-location {
+    text-align: right;
+    color: var(--gray-text);
+    margin-top: -1.5rem;
+}
+
+.letter-body p {
+    margin-bottom: 1.5rem;
+}
+
+.letter-signature {
+    margin-top: 3rem;
+    text-align: right;
+}
+
+.letter-footer-action {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/* ==========================================================================
+   6. PIED DE PAGE (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (MOBILES & TABLETTES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1rem;
+    }
+    
+    nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    main {
+        padding: 2rem 1.2rem;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+
+    .hero-image .profile-pic {
+        width: 100%;
+        max-width: 260px;
+        height: 260px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .cv-header, .book-header, .motivation-header {
+        margin-bottom: 2.5rem;
+        padding-left: 1rem;
+    }
+
+    .cv-header h1, .book-header h1, .motivation-header h1 {
+        font-size: 2rem;
+    }
+
+    .cv-section {
+        padding: 1.5rem;
+    }
+
+    .cv-item {
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-date {
